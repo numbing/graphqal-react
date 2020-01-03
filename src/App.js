@@ -1,11 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import HomePageComponent from "./pages/homePage/HomePgaeComponent";
 
 function App() {
   return (
-    <div className="App">
-dasd
+    <div className="test">
+      <HomePageComponent />
     </div>
   );
 }
