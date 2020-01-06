@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
 import HomePageComponent from "./pages/homePage/HomePgaeComponent";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="test">
-      <HomePageComponent />
+      <Switch>
+        <Route exact path="/" component={HomePageComponent} />
+      </Switch>
     </div>
   );
 }
