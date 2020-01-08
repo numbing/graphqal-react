@@ -12,6 +12,28 @@ const config = {
   appId: "1:608596260761:web:f4c422a9b1a33d04914508",
   measurementId: "G-PCBSGN6ERP"
 };
+//storing user data from google to our database
+export const createUserProfileDocument = async (userAuth, addintionalData) => {
+  if (!userAuth) return;
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...addintionalData
+      });
+    } catch (error) {
+      console.log("error creating user", error.message);
+    }
+  }
+  return userRef;
+};
 
 firebase.initializeApp(config);
 
