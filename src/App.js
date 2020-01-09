@@ -6,6 +6,7 @@ import ShopPage from "./pages/shop/ShopPage";
 import Header from "./components/header/Header";
 import SignInSingUp from "./pages/signInSingUp/SignInSingUp";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {$,jQuery} from 'jquery';
 
 class App extends React.Component {
   constructor() {
